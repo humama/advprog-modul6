@@ -29,3 +29,16 @@ Refactoring dibutuhkan agar tidak ada kode yang duplikat atau kode yang diulang-
 
 ![Alt text](commit3.png)
 </details>
+<details>
+<summary>Commit 4 Reflection notes</summary>
+
+Kita beralih dari if ke match sekarang karena kita memiliki tiga kasus. Kita perlu mencocokkan secara eksplisit sepotong request_line agar polanya cocok dengan nilai literal string; match tidak melakukan referensi dan dereferensi otomatis seperti yang dilakukan metode kesetaraan.
+
+Lengan pertama sama dengan blok if dari Listing 20-9. Lengan kedua cocok dengan permintaan ke /sleep. Ketika permintaan tersebut diterima, server akan tidur selama 5 detik sebelum merender halaman HTML yang berhasil. Lengan ketiga sama dengan blok lain dari Listing 20-9.
+
+Anda dapat melihat betapa primitifnya server kita: perpustakaan sebenarnya akan menangani pengenalan banyak permintaan dengan cara yang tidak terlalu bertele-tele!
+
+Mulai server menggunakan cargo run. Kemudian buka dua jendela browser: satu untuk http://127.0.0.1:7878/ dan yang lainnya untuk http://127.0.0.1:7878/sleep. Jika Anda memasukkan / URI beberapa kali, seperti sebelumnya, Anda akan melihatnya merespons dengan cepat. Namun jika Anda masuk /sleep lalu memuat /, Anda akan melihatnya / menunggu hingga sleep tertidur selama 5 detik penuh sebelum memuat.
+
+Ada beberapa teknik yang dapat kita gunakan untuk menghindari cadangan permintaan di belakang permintaan yang lambat; yang akan kita terapkan adalah kumpulan thread.
+</details>
